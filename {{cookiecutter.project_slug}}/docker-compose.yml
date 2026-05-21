@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - /app/data
+      - /app/models
+    environment:
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
