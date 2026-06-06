@@ -2,7 +2,9 @@
 
 {{ cookiecutter.description }}
 
-Author: {{ cookiecutter.author_name }}
+**Author:** {{ cookiecutter.author_name }}
+
+---
 
 ## Project Structure
 
@@ -13,11 +15,12 @@ Author: {{ cookiecutter.author_name }}
 │   ├── raw/            # Original, immutable data
 │   └── processed/      # The final, canonical data sets for modeling
 ├── docs/               # Documentation
+├── examples/           # Example scripts or notebooks
 ├── models/             # Trained and serialized models
 ├── notebooks/          # Jupyter notebooks
 ├── src/                # Source code
 │   ├── data/           # Scripts to download or generate data
-│   ├── models/         # Scripts to train models and then use trained models to make predictions
+│   ├── models/         # Scripts to train models and make predictions
 │   └── utils/          # Utility functions
 ├── tests/              # Unit tests
 ├── Dockerfile          # Dockerfile for modern ML projects
@@ -25,6 +28,8 @@ Author: {{ cookiecutter.author_name }}
 ├── pyproject.toml      # Python project configuration (uv, ruff, black)
 └── README.md           # This file
 ```
+
+---
 
 ## Getting Started
 
@@ -35,35 +40,53 @@ Author: {{ cookiecutter.author_name }}
 
 ### Installation
 
-1. Clone the repository:
+1. **Generate the project** using Cookiecutter:
    ```bash
-   git clone <repo-url>
+   uvx cookiecutter https://github.com/attmhd/ml-projects-template
+   ```
+
+2. **Fill in the project details** when prompted:
+   - `project_name`: Nama proyek yang lebih deskriptif (contoh: `My ML Project`).
+   - `project_slug`: Nama identitas proyek (contoh: `my-ml-project`).
+   - `author_name`: Nama penulis proyek.
+   - `description`: Deskripsi singkat proyek.
+   - `python_version`: Versi Python yang digunakan (contoh: `3.10`).
+
+3. **Navigate to the project directory**:
+   ```bash
    cd {{ cookiecutter.project_slug }}
    ```
 
-2. Sync dependencies:
+4. **Sync dependencies**:
    ```bash
    uv sync
    ```
 
-3. Setup pre-commit:
+5. **Setup pre-commit**:
    ```bash
    uv run pre-commit install
    ```
 
-### Usage
+---
 
-#### Running locally
+## Usage
+
+### Running Locally
 ```bash
 uv run python src/main.py
 ```
 
-#### Running with Docker
+### Running with Docker
 ```bash
 docker compose up
 ```
 
+---
+
 ## Development
 
-- **Linting/Formatting**: `uv run ruff check .` and `uv run black .`
-- **Testing**: `uv run pytest`
+- **Linting & Formatting**: 
+  - `uv run ruff check .`
+  - `uv run black .`
+- **Testing**: 
+  - `uv run pytest`
