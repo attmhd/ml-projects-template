@@ -145,10 +145,13 @@ dmypy.json
 cython_debug/
 
 # ML specific
-data/
-!data/.gitkeep
-models/
-!models/.gitkeep
+data/**
+!data/**/
+!data/**/.gitkeep
+
+models/**
+!models/**/
+!models/**/.gitkeep
 outputs/
 *.log
 .wandb
